@@ -16,4 +16,9 @@ public class GithubApiException extends RuntimeException {
         super(message);
         this.status = status;
     }
+    
+    public GithubApiException(String message, int statusCode) {
+		super(message + " (Status code: " + statusCode + ")");
+        this.status = HttpStatus.valueOf(statusCode);
+    }
 }
